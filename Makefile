@@ -1,0 +1,47 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/06/16 17:34:31 by pauhenr2          #+#    #+#              #
+#    Updated: 2026/06/16 18:38:14 by pauhenr2         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+#__________Configurations____________#
+
+NAME = libftprintf.a
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+
+INC_DIR = includes/
+SRC_DIR = srcs/ 
+
+#___________Source Files_____________#
+
+SRCS = $(SRC_DIR)ft_printf.c \
+
+OBJS = $(SRCS:.c=.o)
+
+#_______________Rules_______________#
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
+
+%.o : %.c
+	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
+
+clean:
+	rm -f $(OBJS)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean
+	make all
+
+.PHONY: all clean fclean re

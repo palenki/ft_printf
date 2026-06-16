@@ -1,0 +1,7 @@
+# Executables and compilation files
+*.o
+*.a
+*.out
+
+# Temporary
+*.swp
