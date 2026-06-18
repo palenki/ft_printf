@@ -6,7 +6,7 @@
 #    By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/16 17:34:31 by pauhenr2          #+#    #+#              #
-#    Updated: 2026/06/16 18:38:14 by pauhenr2         ###   ########.fr        #
+#    Updated: 2026/06/18 17:59:45 by pauhenr2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,12 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 INC_DIR = includes/
-SRC_DIR = srcs/ 
+SRC_DIR = srcs/
 
 #___________Source Files_____________#
 
 SRCS = $(SRC_DIR)ft_printf.c \
+	   $(SRC_DIR)ft_printf_text.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -41,7 +42,6 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re: fclean
-	make all
+re: fclean all
 
 .PHONY: all clean fclean re
