@@ -6,7 +6,7 @@
 #    By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/16 17:34:31 by pauhenr2          #+#    #+#              #
-#    Updated: 2026/06/18 17:59:45 by pauhenr2         ###   ########.fr        #
+#    Updated: 2026/06/19 12:59:26 by pauhenr2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 NAME = libftprintf.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 INC_DIR = includes/
 SRC_DIR = srcs/

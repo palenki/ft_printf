@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 11:26:34 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/18 17:01:30 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/19 13:44:50 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ int	ft_handleflag(const char **format, va_list args)
 	(*format)++;
 	if (**format == 'c')
 		sub_count = ft_putchar(va_arg(args, int));
-	(*format)++;
+	else if (**format == 's')
+		sub_count = ft_putstr(va_arg(args, char *));
+	if (*format)
+		(*format)++;
 	return(sub_count);
 }
 
