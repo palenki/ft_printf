@@ -14,17 +14,19 @@
 
 int	ft_handleflag(const char **format, va_list args)
 {
-	int	sub_count;
+	int	count;
 
-	sub_count = 0;
+	count = 0;
 	(*format)++;
 	if (**format == 'c')
-		sub_count = ft_putchar(va_arg(args, int));
+		count += ft_putchar(va_arg(args, int));
 	else if (**format == 's')
-		sub_count = ft_putstr(va_arg(args, char *));
+		count += ft_putstr(va_arg(args, char *));
+	else if (**format == 'p')
+		count += ft_putptr(va_arg(args, void *));
 	if (*format)
 		(*format)++;
-	return(sub_count);
+	return(count);
 }
 
 int	ft_printf(const char *format, ...)

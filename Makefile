@@ -6,7 +6,7 @@
 #    By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/16 17:34:31 by pauhenr2          #+#    #+#              #
-#    Updated: 2026/06/19 12:59:26 by pauhenr2         ###   ########.fr        #
+#    Updated: 2026/06/20 14:37:36 by pauhenr2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 NAME = libftprintf.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 INC_DIR = includes/
 SRC_DIR = srcs/
@@ -22,7 +22,8 @@ SRC_DIR = srcs/
 #___________Source Files_____________#
 
 SRCS = $(SRC_DIR)ft_printf.c \
-	   $(SRC_DIR)ft_printf_text.c
+	$(SRC_DIR)ft_printf_text.c \
+	$(SRC_DIR)ft_printf_numbers.c
 
 OBJS = $(SRCS:.c=.o)
 
