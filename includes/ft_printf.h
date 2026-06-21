@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 16:54:47 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/20 23:10:10 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/20 23:41:52 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ int	ft_putstr(char *str);
 int	ft_putptr(void *ptr);
 int	ft_putnbr(int n);
 int	ft_putunbr(unsigned int n);
+int	ft_puthex(unsigned int nbr, char specifier);
 
 #endif

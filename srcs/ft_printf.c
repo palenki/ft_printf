@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 11:26:34 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/20 23:09:11 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/21 00:19:48 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,21 @@
 
 static int	ft_dispatch(char specifier, va_list args)
 {
-	int	count;
-
-	count = 0;
 	if (specifier == 'c')
-		count += ft_putchar(va_arg(args, int));
+		return (ft_putchar(va_arg(args, int)));
 	else if (specifier == 's')
-		count += ft_putstr(va_arg(args, char *));
+		return (ft_putstr(va_arg(args, char *)));
 	else if (specifier == 'p')
-		count += ft_putptr(va_arg(args, void *));
+		return (ft_putptr(va_arg(args, void *)));
 	else if (specifier == 'd' || specifier == 'i')
-		count += ft_putnbr(va_arg(args, int));
+		return (ft_putnbr(va_arg(args, int)));
 	else if (specifier == 'u')
-		count += ft_putunbr(va_arg(args, unsigned int));
-	return(count);
+		return (ft_putunbr(va_arg(args, unsigned int)));
+	else if (specifier == 'x' || specifier == 'X')
+		return (ft_puthex(va_arg(args, unsigned int), specifier));
+	else if (specifier == '%')
+		return (ft_putchar('%'));
+	return(0);
 }
 
 static int	ft_parse_type(const char **format, va_list args)
