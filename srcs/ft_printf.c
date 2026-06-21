@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 11:26:34 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/20 21:58:54 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/20 22:12:22 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ static int	ft_dispatch(char specifier, va_list args)
 		count += ft_putstr(va_arg(args, char *));
 	else if (specifier == 'p')
 		count += ft_putptr(va_arg(args, void *));
+	else if (specifier == 'd' || specifier == 'i')
+		count += ft_putnbr(va_arg(args, int));
 	return(count);
 }
 
