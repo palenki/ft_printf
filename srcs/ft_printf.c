@@ -6,27 +6,36 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 11:26:34 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/19 13:44:50 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/20 21:58:54 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_handleflag(const char **format, va_list args)
+static int	ft_dispatch(char specifier, va_list args)
 {
 	int	count;
 
 	count = 0;
-	(*format)++;
-	if (**format == 'c')
+	if (specifier == 'c')
 		count += ft_putchar(va_arg(args, int));
-	else if (**format == 's')
+	else if (specifier == 's')
 		count += ft_putstr(va_arg(args, char *));
-	else if (**format == 'p')
+	else if (specifier == 'p')
 		count += ft_putptr(va_arg(args, void *));
-	if (*format)
-		(*format)++;
 	return(count);
+}
+
+static int	ft_parse_type(const char **format, va_list args)
+{
+	char specifier;
+
+	(*format)++;
+	if (!(**format))
+		return (0);
+	specifier = **format;
+	(*format)++;
+	return(ft_dispatch(specifier, args));
 }
 
 int	ft_printf(const char *format, ...)
@@ -39,7 +48,7 @@ int	ft_printf(const char *format, ...)
 	while(*format)
 	{
 		if(*format == '%')
-			count += ft_handleflag(&format, args);
+			count += ft_parse_type(&format, args);
 		else
 		{
 			count += ft_putchar(*format);
