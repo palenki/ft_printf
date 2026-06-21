@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 14:12:53 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/20 22:20:08 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/20 23:25:49 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,30 @@ int	ft_putnbr(int	n)
 	if (nbr >= 10)
 		count += ft_putnbr(nbr / 10);
 	count += ft_putchar((nbr % 10) + '0');
+	return (count);
+}
+
+int	ft_putunbr(unsigned int n)
+{
+	unsigned int	div;
+	unsigned int	temp;
+	char		digit;
+	int 		count;
+
+	count = 0;
+	div = 1;
+	temp = n;
+	while (temp >= 10)
+	{
+		div *= 10;
+		temp /= 10;
+	}
+	while (div > 0)
+	{
+		digit = (n / div) + '0';
+		count += ft_putchar(digit);
+		n = n % div;
+		div /= 10;
+	}
 	return (count);
 }
