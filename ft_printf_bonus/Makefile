@@ -6,7 +6,7 @@
 #    By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/16 17:34:31 by pauhenr2          #+#    #+#              #
-#    Updated: 2026/06/22 22:25:16 by pauhenr2         ###   ########.fr        #
+#    Updated: 2026/06/23 20:11:45 by pauhenr2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS = ft_printf.c \
 	ft_printf_text.c \
-	ft_printf_numbers.c
+	ft_printf_numbers.c \
+	ft_printf_length.c \
+	ft_printf_handles.c
 
 OBJS = $(SRCS:.c=.o)
 
