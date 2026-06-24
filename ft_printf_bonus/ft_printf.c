@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 11:26:34 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/23 22:23:59 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/23 23:11:35 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	print_format(t_format info, va_list args)
 {
 	if (info.spec == 'c')
-		return (ft_putchar(va_arg(args, int)));
+		return (ft_handle_c(info, va_arg(args, int)));
 	else if (info.spec == 's')
 		return (ft_handle_s(info, va_arg(args, char *)));
 	else if (info.spec == 'p')

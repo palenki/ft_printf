@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 16:54:47 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/23 22:13:40 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/23 23:11:03 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	ft_printf(const char *format, ...);
 
 int	ft_handle_d(t_format info, int nbr);
 int	ft_handle_s(t_format info, char *str);
+int	ft_handle_c(t_format info, char c);
 
 /* ---------------UTILITY FUNCTIONS---------------  */
 
@@ -44,5 +45,6 @@ int	ft_putptr(void *ptr);
 int	ft_putnbr(int n);
 int	ft_putunbr(unsigned int n);
 int	ft_puthex(unsigned int nbr, char specifier);
+int	ft_print_padding(int padding);
 
 #endif

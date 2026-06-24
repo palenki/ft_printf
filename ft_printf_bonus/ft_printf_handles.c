@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 19:19:32 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/23 22:29:53 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/23 23:19:37 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,26 @@ int	ft_handle_d(t_format info, int nbr)
 	count = 0;
 	len = ft_nbrlen(nbr);
 	padding = info.width - len;
-	if (info.minus)
-		count += ft_putnbr(nbr);
-	while (padding > 0)
-	{
-		count += write(1, " ", 1);
-		padding--;
-	}
 	if (!info.minus)
-		count += ft_putnbr(nbr);
+		count += ft_print_padding(padding);
+	count += ft_putnbr(nbr);
+	if (info.minus)
+		count += ft_print_padding(padding);
+	return (count);
+}
+
+int	ft_handle_c(t_format info, char c)
+{
+	int	count;
+	int	padding;
+
+	count = 0;
+	padding = info.width - 1;
+	if (!info.minus)
+		count += ft_print_padding(padding);
+	count += ft_putchar(c);
+	if (info.minus)
+		count += ft_print_padding(padding);
 	return (count);
 }
 
@@ -44,14 +55,10 @@ int	ft_handle_s(t_format info, char *str)
 		str = "(null)";
 	len = ft_strlen(str);
 	padding = info.width - len;
-	if (info.minus)
-		count += ft_putstr(str);
-	while (padding > 0)
-	{
-		count += write(1, " ", 1);
-		padding--;
-	}
 	if (!info.minus)
-		count += ft_putstr(str);
+		count += ft_print_padding(padding);
+	count += ft_putstr(str);
+	if (info.minus)
+		count += ft_print_padding(padding);
 	return (count);
 }
