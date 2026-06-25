@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 16:54:47 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/24 20:21:49 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/24 21:35:12 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 typedef struct s_format
 {
+	int	zero;
 	int	minus;
 	int	width;
 	char	spec;
@@ -47,6 +48,6 @@ int	ft_putptr(unsigned long nbr, char specifier);
 int	ft_putnbr(int n);
 int	ft_putunbr(unsigned int n);
 int	ft_puthex(unsigned long nbr, char specifier);
-int	ft_print_padding(int padding);
+int	ft_print_padding(int padding, char c);
 
 #endif

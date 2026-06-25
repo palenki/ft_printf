@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 13:45:06 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/23 23:19:17 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/24 21:34:51 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ int	ft_putstr(char *str)
 	return (i);
 }
 
-int     ft_print_padding(int padding)
+int     ft_print_padding(int padding, char c)
 {
         int     count;
 
         count = 0;
         while (padding > 0)
         {
-                count += write(1, " ", 1);
+                count += write(1, &c, 1);
                 padding--;
         }
         return (count);

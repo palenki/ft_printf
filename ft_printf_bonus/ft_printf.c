@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 11:26:34 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/24 20:49:58 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/24 21:37:25 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ static void	format_identifier(const char **str, t_format *info)
 	if (**str == '-')
 	{
 		info->minus = 1;
+		(*str)++;
+	}
+	if (**str == '0')
+	{
+		info->zero = 1;
 		(*str)++;
 	}
 	while(**str >= '0' && **str <= '9')
