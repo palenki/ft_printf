@@ -6,26 +6,13 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 14:12:53 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/20 23:45:34 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/24 20:23:16 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_putptr_hex(unsigned long long address)
-{
-	int	count;
-	char	*base;
-
-	count = 0;
-	base = "0123456789abcdef";
-	if (address >= 16)
-		count += ft_putptr_hex(address / 16);
-	count += ft_putchar(base[address % 16]);
-	return (count);
-}
-
-int	ft_putptr(void *ptr)
+int	ft_putptr(unsigned long ptr, char specifier)
 {
 	int	count;
 
@@ -33,11 +20,11 @@ int	ft_putptr(void *ptr)
 	if (!ptr)
 		return (write(1, "(nil)", 5));
 	count += write (1, "0x", 2);
-	count += ft_putptr_hex((unsigned long long)ptr);
+	count += ft_puthex(ptr, specifier);
 	return (count);
 }
 
-int	ft_puthex(unsigned int nbr, char specifier)
+int	ft_puthex(unsigned long nbr, char specifier)
 {
 	int	count;
 	char	*base;

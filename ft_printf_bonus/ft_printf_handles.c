@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 19:19:32 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/23 23:19:37 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/24 20:32:57 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,28 @@ int	ft_handle_d(t_format info, int nbr)
 	if (!info.minus)
 		count += ft_print_padding(padding);
 	count += ft_putnbr(nbr);
+	if (info.minus)
+		count += ft_print_padding(padding);
+	return (count);
+}
+
+int	ft_handle_hex(t_format info, unsigned long nbr)
+{
+	int	count;
+	int	padding;
+	int	len;
+
+	count = 0;
+	len = ft_hexlen(nbr);
+	if (info.spec == 'p' && nbr == 0)
+		len = 5;
+	padding = info.width - len;
+	if (!info.minus)
+		count += ft_print_padding(padding);
+	if (info.spec == 'p')
+		count += ft_putptr(nbr, info.spec);
+	else
+		count += ft_puthex(nbr, info.spec);
 	if (info.minus)
 		count += ft_print_padding(padding);
 	return (count);

@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 11:26:34 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/23 23:11:35 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/24 20:49:58 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ static int	print_format(t_format info, va_list args)
 	else if (info.spec == 's')
 		return (ft_handle_s(info, va_arg(args, char *)));
 	else if (info.spec == 'p')
-		return (ft_putptr(va_arg(args, void *)));
+		return (ft_handle_hex(info, (unsigned long)va_arg(args, void *)));
 	else if (info.spec == 'd' || info.spec == 'i')
 		return (ft_handle_d(info, va_arg(args, int)));
 	else if (info.spec == 'u')
 		return (ft_putunbr(va_arg(args, unsigned int)));
 	else if (info.spec == 'x' || info.spec == 'X')
-		return (ft_puthex(va_arg(args, unsigned int), info.spec));
+		return (ft_handle_hex(info, va_arg(args, unsigned int)));
 	else if (info.spec == '%')
-		return (ft_putchar('%'));
+		return (ft_handle_c(info, '%'));
 	return(0);
 }
 
