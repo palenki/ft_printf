@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 13:45:06 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/19 13:38:49 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/25 15:14:08 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_putchar(char c)
 
 int	ft_putstr(char *str)
 {
-	int i;
+	int	i;
 
 	if (!str)
 	{

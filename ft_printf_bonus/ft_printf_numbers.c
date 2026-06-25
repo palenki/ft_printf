@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 14:12:53 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/24 20:23:16 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/25 15:07:58 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_putptr(unsigned long ptr, char specifier)
 
 int	ft_puthex(unsigned long nbr, char specifier)
 {
-	int	count;
+	int		count;
 	char	*base;
 
 	base = "0123456789abcdef";
@@ -39,10 +39,10 @@ int	ft_puthex(unsigned long nbr, char specifier)
 	return (count);
 }
 
-int	ft_putnbr(int	n)
+int	ft_putnbr(int n)
 {
 	long	nbr;
-	int	count;
+	int		count;
 
 	nbr = n;
 	count = 0;
@@ -61,8 +61,8 @@ int	ft_putunbr(unsigned int n)
 {
 	unsigned int	div;
 	unsigned int	temp;
-	char		digit;
-	int 		count;
+	char			digit;
+	int				count;
 
 	count = 0;
 	div = 1;

@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 11:26:34 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/24 21:37:25 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/25 15:02:12 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ static int	print_format(t_format info, va_list args)
 		return (ft_handle_hex(info, va_arg(args, unsigned int)));
 	else if (info.spec == '%')
 		return (ft_handle_c(info, '%'));
-	return(0);
+	return (0);
 }
 
 static void	format_identifier(const char **str, t_format *info)
 {
 	(*str)++;
 	if (!(**str))
-		return;
+		return ;
 	if (**str == '-')
 	{
 		info->minus = 1;
@@ -46,7 +46,7 @@ static void	format_identifier(const char **str, t_format *info)
 		info->zero = 1;
 		(*str)++;
 	}
-	while(**str >= '0' && **str <= '9')
+	while (**str >= '0' && **str <= '9')
 	{
 		info->width = info->width * 10 + **str - '0';
 		(*str)++;
@@ -57,15 +57,15 @@ static void	format_identifier(const char **str, t_format *info)
 
 int	ft_printf(const char *str, ...)
 {
-	int	count;
-	va_list args;
+	int			count;
+	va_list		args;
 	t_format	info;
 
 	va_start(args, str);
 	count = 0;
-	while(*str)
+	while (*str)
 	{
-		if(*str == '%')
+		if (*str == '%')
 		{
 			ft_init_format(&info);
 			format_identifier(&str, &info);

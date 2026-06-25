@@ -6,23 +6,23 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 18:38:31 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/24 21:08:03 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/25 15:07:08 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void     ft_init_format(t_format *info)
+void	ft_init_format(t_format *info)
 {
 	info->zero = 0;
-        info->minus = 0;
-        info->width = 0;
-        info->spec = 0;
+	info->minus = 0;
+	info->width = 0;
+	info->spec = 0;
 }
 
 int	ft_nbrlen(int n)
 {
-	int	len;
+	int		len;
 	long	nbr;
 
 	nbr = n;
@@ -58,7 +58,7 @@ int	ft_strlen(char *str)
 	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 		i++;
 	return (i);
 }

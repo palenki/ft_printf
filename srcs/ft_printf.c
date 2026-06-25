@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 11:26:34 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/21 00:19:48 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/25 15:14:51 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,31 +28,31 @@ static int	ft_dispatch(char specifier, va_list args)
 		return (ft_puthex(va_arg(args, unsigned int), specifier));
 	else if (specifier == '%')
 		return (ft_putchar('%'));
-	return(0);
+	return (0);
 }
 
 static int	ft_parse_type(const char **format, va_list args)
 {
-	char specifier;
+	char	specifier;
 
 	(*format)++;
 	if (!(**format))
 		return (0);
 	specifier = **format;
 	(*format)++;
-	return(ft_dispatch(specifier, args));
+	return (ft_dispatch(specifier, args));
 }
 
 int	ft_printf(const char *format, ...)
 {
-	int	count;
-	va_list args;
+	int		count;
+	va_list	args;
 
 	va_start(args, format);
 	count = 0;
-	while(*format)
+	while (*format)
 	{
-		if(*format == '%')
+		if (*format == '%')
 			count += ft_parse_type(&format, args);
 		else
 		{
