@@ -6,7 +6,7 @@
 #    By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/16 17:34:31 by pauhenr2          #+#    #+#              #
-#    Updated: 2026/06/23 20:11:45 by pauhenr2         ###   ########.fr        #
+#    Updated: 2026/06/25 18:27:59 by pauhenr2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,8 @@ $(NAME): $(OBJS)
 
 %.o : %.c
 	$(CC) $(CFLAGS) -I . -c $< -o $@
+
+bonus: all
 
 clean:
 	rm -f $(OBJS)

@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 19:19:32 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/25 14:56:32 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/27 16:11:07 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,12 @@ int	ft_handle_hex(t_format info, unsigned long nbr)
 
 	count = 0;
 	len = ft_hexlen(nbr);
-	if (info.spec == 'p' && nbr == 0)
-		len = 5;
+	if (info.spec == 'p')
+	{
+		len += 2;
+		if(nbr == 0)
+			len = 5;
+	}
 	padding = info.width - len;
 	if (!info.minus)
 		count += ft_print_padding(padding, ' ');
