@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 18:38:31 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/27 16:31:25 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/27 18:14:19 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,19 @@ int	ft_hexlen(unsigned long nbr)
 		len++;
 	}
 	return (len);
+}
+
+int ft_unbrlen(unsigned int nbr)
+{
+    int     len;
+
+    len = 1;
+    while (nbr > 9)
+    {
+        nbr /= 10;
+        len++;
+    }
+    return (len);
 }
 
 int	ft_strlen(char *str)

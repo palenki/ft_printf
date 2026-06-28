@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 13:45:06 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/25 15:10:40 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/27 18:41:16 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,23 @@ int	ft_print_padding(int padding, char c)
 		padding--;
 	}
 	return (count);
+}
+
+int ft_decimal_zero_padd(long nbr, int padding)
+{
+    int count;
+
+    count = 0;
+    if (nbr < 0)
+    {
+        count += ft_putchar('-');
+        count += ft_print_padding(padding, '0');
+        count += ft_putunbr((unsigned int)-(long)nbr);
+    }
+    else
+    {
+        count += ft_print_padding(padding, '0');
+        count += ft_putunbr((unsigned int)nbr);
+    }
+    return (count);
 }
