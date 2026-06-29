@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 18:38:31 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/27 18:14:19 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/28 21:00:07 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_init_format(t_format *info)
 	info->zero = 0;
 	info->minus = 0;
 	info->width = 0;
+	info->precision = -1;
 	info->spec = 0;
 }
 

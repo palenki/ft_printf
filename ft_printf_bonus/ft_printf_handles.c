@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 19:19:32 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/28 20:07:46 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/28 20:25:01 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,10 +121,12 @@ int	ft_handle_s(t_format info, char *str)
 	if (!str)
 		str = "(null)";
 	len = ft_strlen(str);
+	if (info.precision >= 0 && info.precision < len)
+		len = info.precision;
 	padding = info.width - len;
 	if (!info.minus)
 		count += ft_print_padding(padding, ' ');
-	count += ft_putstr(str);
+	count += write(1, str, len);
 	if (info.minus)
 		count += ft_print_padding(padding, ' ');
 	return (count);

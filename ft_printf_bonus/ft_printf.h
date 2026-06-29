@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 16:54:47 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/28 20:01:41 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/28 20:59:27 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_format
 	int		zero;
 	int		minus;
 	int		width;
+	int		precision;
 	char	spec;
 }	t_format;
 

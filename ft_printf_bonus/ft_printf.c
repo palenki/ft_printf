@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 11:26:34 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/28 19:46:10 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/28 21:07:37 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,25 +31,40 @@ static int	print_format(t_format info, va_list args)
 	return (0);
 }
 
+static void	parse_flags(const char **str, t_format *info)
+{
+	while (**str == '-' || **str == '0')
+	{
+		if (**str == '-')
+			info->minus = 1;
+		else if (**str == '0')
+			info->zero = 1;
+		(*str)++;
+    }
+
+}
+
 static void	format_identifier(const char **str, t_format *info)
 {
 	(*str)++;
 	if (!(**str))
 		return ;
-	if (**str == '-')
-	{
-		info->minus = 1;
-		(*str)++;
-	}
-	if (**str == '0')
-	{
-		info->zero = 1;
-		(*str)++;
-	}
+	parse_flags(str, info);
 	while (**str >= '0' && **str <= '9')
 	{
 		info->width = info->width * 10 + **str - '0';
 		(*str)++;
+	}
+	if (**str == '.')
+	{
+		info->zero = 0;
+		(*str)++;
+		info->precision = 0;
+		 while (**str >= '0' && **str <= '9')
+		{
+			info->precision = info->precision * 10 + (**str - '0');
+			(*str)++;
+		}
 	}
 	info->spec = **str;
 	(*str)++;
