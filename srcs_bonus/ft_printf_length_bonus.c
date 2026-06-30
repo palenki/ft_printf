@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_length.c                                 :+:      :+:    :+:   */
+/*   ft_printf_length_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 18:38:31 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/28 21:00:07 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/29 22:14:27 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 void	ft_init_format(t_format *info)
 {
@@ -54,17 +54,17 @@ int	ft_hexlen(unsigned long nbr)
 	return (len);
 }
 
-int ft_unbrlen(unsigned int nbr)
+int	ft_unbrlen(unsigned int nbr)
 {
-    int     len;
+	int	len;
 
-    len = 1;
-    while (nbr > 9)
-    {
-        nbr /= 10;
-        len++;
-    }
-    return (len);
+	len = 1;
+	while (nbr > 9)
+	{
+		nbr /= 10;
+		len++;
+	}
+	return (len);
 }
 
 int	ft_strlen(char *str)

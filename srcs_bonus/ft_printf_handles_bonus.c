@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_handles.c                                :+:      :+:    :+:   */
+/*   ft_printf_handles_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 19:19:32 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/28 20:25:01 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/29 22:14:13 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 int	ft_handle_d(t_format info, int nbr)
 {
@@ -33,25 +33,25 @@ int	ft_handle_d(t_format info, int nbr)
 	return (count);
 }
 
-int ft_handle_u(t_format info, unsigned int nbr)
+int	ft_handle_u(t_format info, unsigned int nbr)
 {
-    int	count;
-    int	len;
-    int	padding;
+	int	count;
+	int	len;
+	int	padding;
 
-    count = 0;
-    len = ft_unbrlen(nbr);
-    padding = info.width - len;
-    if (!info.minus)
-    {
-        if (info.zero)
-            return (ft_decimal_zero_padd(nbr, padding));
-        count += ft_print_padding(padding, ' ');
-    }
-    count += ft_putunbr(nbr);
-    if (info.minus)
-        count += ft_print_padding(padding, ' ');
-    return (count);
+	count = 0;
+	len = ft_unbrlen(nbr);
+	padding = info.width - len;
+	if (!info.minus)
+	{
+		if (info.zero)
+			return (ft_decimal_zero_padd(nbr, padding));
+		count += ft_print_padding(padding, ' ');
+	}
+	count += ft_putunbr(nbr);
+	if (info.minus)
+		count += ft_print_padding(padding, ' ');
+	return (count);
 }
 
 int	ft_handle_hex(t_format info, unsigned long nbr)
@@ -65,7 +65,7 @@ int	ft_handle_hex(t_format info, unsigned long nbr)
 	padding = info.width - len;
 	if (!info.minus)
 	{
-		if(info.zero)
+		if (info.zero)
 			count += ft_print_padding(padding, '0');
 		else
 			count += ft_print_padding(padding, ' ');
@@ -76,36 +76,20 @@ int	ft_handle_hex(t_format info, unsigned long nbr)
 	return (count);
 }
 
-int ft_handle_p(t_format info, void *ptr)
-{
-    int count;
-    int padding;
-    int len;
-
-    count = 0;
-    len = ft_hexlen((unsigned long)ptr) + 2;
-	if (!ptr)
-		len = 5;
-    padding = info.width - len;
-    if (!info.minus)
-        count += ft_print_padding(padding, ' ');
-    count += ft_putptr((unsigned long)ptr, info.spec);
-    if (info.minus)
-        count += ft_print_padding(padding, ' ');
-    return (count);
-}
-
-
-int	ft_handle_c(t_format info, char c)
+int	ft_handle_p(t_format info, void *ptr)
 {
 	int	count;
 	int	padding;
+	int	len;
 
 	count = 0;
-	padding = info.width - 1;
+	len = ft_hexlen((unsigned long)ptr) + 2;
+	if (!ptr)
+		len = 5;
+	padding = info.width - len;
 	if (!info.minus)
 		count += ft_print_padding(padding, ' ');
-	count += ft_putchar(c);
+	count += ft_putptr((unsigned long)ptr, info.spec);
 	if (info.minus)
 		count += ft_print_padding(padding, ' ');
 	return (count);

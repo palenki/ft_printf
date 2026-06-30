@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 11:26:34 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/06/28 21:07:37 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/06/29 22:13:24 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 static int	print_format(t_format info, va_list args)
 {
@@ -40,8 +40,7 @@ static void	parse_flags(const char **str, t_format *info)
 		else if (**str == '0')
 			info->zero = 1;
 		(*str)++;
-    }
-
+	}
 }
 
 static void	format_identifier(const char **str, t_format *info)
@@ -60,7 +59,7 @@ static void	format_identifier(const char **str, t_format *info)
 		info->zero = 0;
 		(*str)++;
 		info->precision = 0;
-		 while (**str >= '0' && **str <= '9')
+		while (**str >= '0' && **str <= '9')
 		{
 			info->precision = info->precision * 10 + (**str - '0');
 			(*str)++;
